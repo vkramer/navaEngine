@@ -1,26 +1,21 @@
 #include <iostream>
 #include "src\engine\core\Window.h"
+#include "src\engine\core\CoreEngine.h"
 
-const unsigned int WIN_WIDTH = 1600;
-const unsigned int WIN_HEIGHT = 900;
+const unsigned int NE_WIN_WIDTH = 1600;
+const unsigned int NE_WIN_HEIGHT = 900;
+
+const unsigned int NE_FRAMERATE = 60;
 
 int main() {
 
 	// Initialize and create GLFW Window
 	Window window;
-	window.create(WIN_WIDTH, WIN_HEIGHT, "NavaEngine");
+	window.create(NE_WIN_WIDTH, NE_WIN_HEIGHT, "NavaEngine");
 
-	// While close window call is not being requested - render window
-	while (!glfwWindowShouldClose(window.getWindow())) {
-		// Clear Screen
-		window.clear();
-		// Swap Buffers
-		window.render();
-		// GLFW Event Polling
-		glfwPollEvents();
-	}
-
-	window.dispose();
+	// Initialize and start CoreEngine
+	CoreEngine engine(&window, NE_FRAMERATE);
+	engine.start();
 
 	return 0;
 }

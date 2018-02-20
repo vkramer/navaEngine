@@ -24,9 +24,15 @@
     <ClCompile Include="src\engine\core\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\core\CoreEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\core\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\CoreEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

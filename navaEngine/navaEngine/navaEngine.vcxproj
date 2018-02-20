@@ -128,9 +128,11 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\engine\core\CoreEngine.cpp" />
     <ClCompile Include="src\engine\core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\engine\core\CoreEngine.h" />
     <ClInclude Include="src\engine\core\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

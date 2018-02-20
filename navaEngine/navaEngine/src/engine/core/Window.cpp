@@ -1,14 +1,7 @@
 #include "Window.h"
 
+// HANDLE WINDOW RESIZE
 void window_resize(GLFWwindow *window, int width, int height);
-
-Window::Window() {
-
-}
-
-Window::~Window() {
-
-}
 
 // CREATE WINDOW
 void Window::create(int width, int height, const char *title) {
@@ -80,13 +73,16 @@ void Window::render() {
 	glfwSwapBuffers(m_window);
 }
 
+// CLEAR SCREEN
 void Window::clear() {
 	glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
+// DESTROY WINDOW & TERMINATE GLFW
 void Window::dispose() {
 	glfwDestroyWindow(m_window);
+	glfwTerminate();
 }
 
 // RETURN WINDOW WIDTH
