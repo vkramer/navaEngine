@@ -2,8 +2,9 @@
 
 int CoreEngine::fps;
 
-CoreEngine::CoreEngine(Window* window, double frameRate) :
+CoreEngine::CoreEngine(Window* window, double frameRate, Game* game) :
 	m_window(window),
+	m_game(game),
 	m_frameTime(1.0 / frameRate),
 	m_isRunning(false)
 {
@@ -26,6 +27,9 @@ void CoreEngine::start() {
 
 void CoreEngine::run() {
 	m_isRunning = true;
+
+	// Initialize Game Content
+	m_game->init();
 
 	double previousTime = glfwGetTime();
 	double unprocessedTime = 0;
@@ -97,12 +101,15 @@ void CoreEngine::input() {
 }
 
 void CoreEngine::update() {
-	// Update placeholder for later
+	// Update Game Content
+	m_game->update();
 }
 
 void CoreEngine::render() {
 	// Clear Screen
 	m_window->clear();
+	// Render Game Content
+	m_game->render();
 	// Swap Buffers
 	m_window->render();
 }

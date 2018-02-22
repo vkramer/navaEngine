@@ -128,12 +128,26 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\apps\TestGame.cpp" />
     <ClCompile Include="src\engine\core\CoreEngine.cpp" />
     <ClCompile Include="src\engine\core\Window.cpp" />
+    <ClCompile Include="src\engine\geometry\Mesh.cpp" />
+    <ClCompile Include="src\engine\shader\BasicShader.cpp" />
+    <ClCompile Include="src\engine\shader\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\apps\TestGame.h" />
     <ClInclude Include="src\engine\core\CoreEngine.h" />
+    <ClInclude Include="src\engine\core\Game.h" />
     <ClInclude Include="src\engine\core\Window.h" />
+    <ClInclude Include="src\engine\geometry\Mesh.h" />
+    <ClInclude Include="src\engine\geometry\Vertex.h" />
+    <ClInclude Include="src\engine\shader\BasicShader.h" />
+    <ClInclude Include="src\engine\shader\Shader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\basicFragment.glsl" />
+    <None Include="res\shaders\basicVertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,12 +1,13 @@
 #pragma once
 
 #include "Window.h"
+#include "Game.h"
 #include <thread>
 
 class CoreEngine {
 
 public:
-	CoreEngine(Window* window, double frameRate);
+	CoreEngine(Window* window, double frameRate, Game* game);
 	~CoreEngine();
 
 	void init();
@@ -15,6 +16,7 @@ public:
 private:
 	bool m_isRunning;
 	Window* m_window;
+	Game* m_game;
 	double m_frameTime;
 	static int fps;
 
