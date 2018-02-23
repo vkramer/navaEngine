@@ -134,6 +134,7 @@
     <ClCompile Include="src\engine\geometry\Mesh.cpp" />
     <ClCompile Include="src\engine\shader\BasicShader.cpp" />
     <ClCompile Include="src\engine\shader\Shader.cpp" />
+    <ClCompile Include="src\engine\texture\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\apps\TestGame.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="src\engine\geometry\Vertex.h" />
     <ClInclude Include="src\engine\shader\BasicShader.h" />
     <ClInclude Include="src\engine\shader\Shader.h" />
+    <ClInclude Include="src\engine\texture\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\basicFragment.glsl" />

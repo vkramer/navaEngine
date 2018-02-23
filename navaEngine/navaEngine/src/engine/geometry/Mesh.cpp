@@ -41,6 +41,8 @@ void Mesh::generateMesh(std::vector<Vertex> vertices, std::vector<unsigned int> 
 
 	// VERTEX ATTRIBUTE POINTERS (POSITION, TEXTURE COORDINATES, NORMALS)
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, m_textureCoord));
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, m_normal));
 }
 
 // SEND MESH TO GPU TO RENDER
@@ -50,12 +52,16 @@ void Mesh::draw() const {
 
 	// ENABLE VERTEX ATTRIBUTE ARRAYS
 	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
 
 	// DRAW THE DAMN TRIANGLES
 	glDrawElements(GL_TRIANGLES, m_size, GL_UNSIGNED_INT, 0);
 
 	// DISABLE VERTEX ATTRIBUTE ARRAYS
 	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glDisableVertexAttribArray(2);
 
 	// UNBIND VERTEX ARRAY
 	glBindVertexArray(0);
