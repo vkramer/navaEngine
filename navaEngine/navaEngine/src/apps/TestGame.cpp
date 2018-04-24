@@ -4,7 +4,7 @@
 
 void TestGame::init() {
 	
-	// Manual Created Vertex Array( currently only passing in vertex position )
+	// Manual Created Vertex Array( currently only passing in vertex position and Texture Coordinates )
 	std::vector<Vertex> vertices = {
 		Vertex(glm::vec3(-0.5f,  -0.5f, 0.0f), glm::vec2(0, 0)),
 		Vertex(glm::vec3(0.5f, -0.5f, 0.0f), glm::vec2(1, 0)),
