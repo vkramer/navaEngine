@@ -1,7 +1,10 @@
 #pragma once
 
 #include "../engine/core/Game.h"
-#include "../engine/geometry/Mesh.h"
+#include "../engine/components/model/Mesh.h"
+#include "../engine/components/model/Model.h"
+#include "../engine/components/model/Material.h"
+#include "../engine/scenegraph/Node.h"
 #include "../engine/texture/Texture.h"
 #include "../engine/shader/Shader.h"
 
@@ -10,13 +13,14 @@ class TestGame : public Game {
 public:
 	TestGame() {}
 
-	virtual void init();
-	virtual void render();
+	void init();
+	void update(float delta);
+	void render();
 
 private:
-	Shader* shader;
-	Texture* texture;
-	Mesh* mesh;
+	Node* cubeNodeTest;
+	Node* cubeNodeTest2;
+	Node* cubeNodeTest3;
 };
 
 

@@ -2,13 +2,17 @@
 
 #include "Shader.h"
 
-class BasicShader : public Shader {
+class BasicShader : public Shader
+{
 
 public:
-	static BasicShader* getInstance() {
+	static BasicShader* getInstance()
+	{
 		static BasicShader instance;
 		return &instance;
 	}
+
+	void updateUniforms(Transform& transform, Model& model, RenderingEngine* renderingEngine);
 
 private:
 	BasicShader();

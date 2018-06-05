@@ -14,19 +14,19 @@ public:
 
 	void create(int width, int height, const char* title);
 	bool isCloseRequested();
-	void clear();
+	static void clear();
 	void update();
 	void render();
 	void dispose();
 
-	GLFWwindow* getWindow();
-	int getWidth();
-	int getHeight();
+	static GLFWwindow* getWindow();
+	static int getWidth();
+	static int getHeight();
 
 
 private:
-	GLFWwindow* m_window;
-	int m_width;
-	int m_height;
+	static GLFWwindow* m_window;
+	static int m_width;
+	static int m_height;
 	const char* m_title;
 };

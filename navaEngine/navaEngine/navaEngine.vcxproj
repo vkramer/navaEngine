@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\Git\source\navaEngine_git\navaEngine\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Git\source\navaEngine_git\navaEngine\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\Git\navaEngine_git\navaEngine\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Git\navaEngine_git\navaEngine\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>E:\Git\source\navaEngine_git\navaEngine\include;$(IncludePath)</IncludePath>
@@ -85,7 +85,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -129,27 +129,52 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\apps\TestGame.cpp" />
+    <ClCompile Include="src\engine\components\camera\Camera.cpp" />
+    <ClCompile Include="src\engine\components\Component.cpp" />
+    <ClCompile Include="src\engine\components\model\Material.cpp" />
+    <ClCompile Include="src\engine\components\model\Model.cpp" />
+    <ClCompile Include="src\engine\components\renderer\Renderer.cpp" />
     <ClCompile Include="src\engine\core\CoreEngine.cpp" />
+    <ClCompile Include="src\engine\core\Game.cpp" />
+    <ClCompile Include="src\engine\core\InputHandler.cpp" />
+    <ClCompile Include="src\engine\core\RenderingEngine.cpp" />
     <ClCompile Include="src\engine\core\Window.cpp" />
-    <ClCompile Include="src\engine\geometry\Mesh.cpp" />
+    <ClCompile Include="src\engine\components\model\Mesh.cpp" />
+    <ClCompile Include="src\engine\scenegraph\Node.cpp" />
+    <ClCompile Include="src\engine\scenegraph\Transform.cpp" />
     <ClCompile Include="src\engine\shader\BasicShader.cpp" />
     <ClCompile Include="src\engine\shader\Shader.cpp" />
+    <ClCompile Include="src\engine\shader\TextShader.cpp" />
     <ClCompile Include="src\engine\texture\Texture.cpp" />
+    <ClCompile Include="src\modules\font\Font.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\apps\TestGame.h" />
+    <ClInclude Include="src\engine\components\camera\Camera.h" />
+    <ClInclude Include="src\engine\components\Component.h" />
+    <ClInclude Include="src\engine\components\model\Material.h" />
+    <ClInclude Include="src\engine\components\model\Model.h" />
+    <ClInclude Include="src\engine\components\renderer\Renderer.h" />
     <ClInclude Include="src\engine\core\CoreEngine.h" />
     <ClInclude Include="src\engine\core\Game.h" />
+    <ClInclude Include="src\engine\core\InputHandler.h" />
+    <ClInclude Include="src\engine\core\RenderingEngine.h" />
     <ClInclude Include="src\engine\core\Window.h" />
-    <ClInclude Include="src\engine\geometry\Mesh.h" />
-    <ClInclude Include="src\engine\geometry\Vertex.h" />
+    <ClInclude Include="src\engine\components\model\Mesh.h" />
+    <ClInclude Include="src\engine\components\model\Vertex.h" />
+    <ClInclude Include="src\engine\scenegraph\Node.h" />
+    <ClInclude Include="src\engine\scenegraph\Transform.h" />
     <ClInclude Include="src\engine\shader\BasicShader.h" />
     <ClInclude Include="src\engine\shader\Shader.h" />
+    <ClInclude Include="src\engine\shader\TextShader.h" />
     <ClInclude Include="src\engine\texture\Texture.h" />
+    <ClInclude Include="src\modules\font\Font.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\basicFragment.glsl" />
     <None Include="res\shaders\basicVertex.glsl" />
+    <None Include="res\shaders\textFragment.glsl" />
+    <None Include="res\shaders\textVertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,6 +8,11 @@
 #include <string>
 #include <iostream>
 
+#include "../texture/Texture.h"
+#include "../scenegraph/Transform.h"
+#include "../components/model/Model.h"
+#include "../core/RenderingEngine.h"
+
 class Shader {
 
 public:
@@ -35,6 +40,11 @@ public:
 	void setUniformf(const std::string& name, float value);
 	void setUniform(const std::string& name, const glm::mat4& value);
 	void setUniform(const std::string& name, const glm::vec3& value);
+
+	virtual void updateUniforms(Texture* texture);
+	virtual void updateUniforms(Transform& transform, Model& model);
+	virtual void updateUniforms(Transform& transform, Model& model, RenderingEngine* renderingEngine);
+	virtual void updateX();
 
 private:
 	unsigned int m_programID;

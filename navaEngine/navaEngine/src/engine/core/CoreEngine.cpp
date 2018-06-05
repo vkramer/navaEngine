@@ -1,22 +1,23 @@
 #include "CoreEngine.h"
+#include "InputHandler.h"
 
 int CoreEngine::fps;
 
-CoreEngine::CoreEngine(Window* window, double frameRate, Game* game) :
+CoreEngine::CoreEngine(Window* window, double frameRate, RenderingEngine* renderingEngine, Game* game) :
 	m_window(window),
 	m_game(game),
-	m_frameTime(1.0 / frameRate),
-	m_isRunning(false)
+	m_frameTime(1.0f / frameRate),
+	m_isRunning(false),
+	m_renderingEngine(renderingEngine)
 {
+	std::cout << "CoreEngine Constructed" << std::endl;
 	init();
-}
-
-CoreEngine::~CoreEngine() {
-
 }
 
 void CoreEngine::init() {
 	std::cout << "CoreEngine Initialized" << std::endl;
+	InputHandler::initCallbacks(m_window->getWindow());
+	m_renderingEngine->init();
 }
 
 void CoreEngine::start() {
@@ -57,7 +58,7 @@ void CoreEngine::run() {
 			frameCounter = 0;
 
 			// Print FPS to Terminal
-			std::cout << fps << std::endl;
+			//std::cout << fps << std::endl;
 		}
 
 		while (unprocessedTime > m_frameTime)
@@ -68,15 +69,15 @@ void CoreEngine::run() {
 			if (m_window->isCloseRequested())
 				this->stop();
 
-			this->input();
-			this->update();
+			this->input((float)m_frameTime);
+			this->update((float)m_frameTime);
 
 			unprocessedTime -= m_frameTime;
 		}
 
 		if (render)
 		{
-			this->render();
+			this->render(m_renderingEngine);
 			frames++;
 		}
 		else {
@@ -95,21 +96,22 @@ void CoreEngine::stop() {
 	m_isRunning = false;
 }
 
-void CoreEngine::input() {
+void CoreEngine::input(float delta) {
 	// GLFW Poll Events
-	m_window->update();
+	m_game->input(delta);
 }
 
-void CoreEngine::update() {
+void CoreEngine::update(float delta) {
 	// Update Game Content
-	m_game->update();
+	InputHandler::update();
+	m_game->update(delta);
 }
 
-void CoreEngine::render() {
-	// Clear Screen
-	m_window->clear();
+void CoreEngine::render(RenderingEngine* renderingEngine) {
+	
 	// Render Game Content
-	m_game->render();
+	m_game->render(m_renderingEngine);
+
 	// Swap Buffers
 	m_window->render();
 }

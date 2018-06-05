@@ -2,31 +2,37 @@
 
 #include "Window.h"
 #include "Game.h"
+#include "RenderingEngine.h"
 #include <thread>
 
 class CoreEngine {
 
 public:
-	CoreEngine(Window* window, double frameRate, Game* game);
-	~CoreEngine();
+	CoreEngine(Window* window, double frameRate, RenderingEngine* renderingEngine, Game* game);
+	virtual ~CoreEngine() {};
+
+	static int fps;
 
 	void init();
 	void start();
 
 private:
-	bool m_isRunning;
 	Window* m_window;
 	Game* m_game;
+	RenderingEngine* m_renderingEngine;
+
+	bool m_isRunning;
 	double m_frameTime;
-	static int fps;
 
 	void run();
 
-	void input();
-	void update();
-	void render();
+	void input(float delta);
+	void update(float delta);
+	void render(RenderingEngine* renderingEngine);
 
 	void stop();
 	void cleanUp();
+
+	
 
 };
